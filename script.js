@@ -13,6 +13,10 @@ function writePassword() {
 
 
 
+
+
+
+
 // Creating Arrays for All the inputs.
 const upperCase = "abcdefghijklmnopqrstuvwxyz";
 
@@ -21,6 +25,11 @@ const lowerCase = "QWERTYUIOPASDFGHJKLZXCVBNM"
 const integer = "1234567890"
 
 const specialchar = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
+
+
+
+
 
 
 
@@ -46,6 +55,11 @@ let randomSpecialChar = function () {
 
 
 
+
+
+
+
+
 //funtion to ask for conditions.
 
 function generatePassword() {
@@ -65,10 +79,23 @@ function generatePassword() {
 
     let weatherInteger = window.confirm("Do you want Numbers in password?");
 
-    let weatherSpecialChar = window.confirm("Do you want Special Characters in password?")
+    let weatherSpecialChar = window.confirm("Do you want Special Characters in password?");
+
+    if (weatherUpper == false && weatherLower == false && weatherInteger == false && weatherSpecialChar == false) {
+      window.alert("PLEASE SELECT ATLEAST ONE TYPE OF CHARACTER FOR PASSWORD");
+      generatePassword();
+    }
 
     return passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar);
+
+
   }
+
+
+
+
+
+
 
 
 
@@ -76,39 +103,43 @@ function generatePassword() {
 
   function passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar) {
     let password = "";
-    for (let i = 0; i <= parseInt(passwordLength); i = i + 4) {
+    while (password.length < 130) {
 
       if (weatherUpper == true) {
         password = password + randomUpper();
-        i++
+
       }
 
 
       if (weatherLower == true) {
         password = password + randomLower();
-        i++
+
       }
 
 
 
       if (weatherInteger == true) {
         password = password + randomInteger();
-        i++
-      }
 
+      }
 
 
       if (weatherSpecialChar == true) {
         password = password + randomSpecialChar();
-        i++
+
       }
 
 
     }
 
 
-    return password
 
+
+
+
+    // to add password length
+    return password
+      .slice(0, parseInt(passwordLength))
       .split("")
       .sort(() => {
         Math.random() * -0.5;
