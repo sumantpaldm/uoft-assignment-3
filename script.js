@@ -44,6 +44,8 @@ let randomSpecialChar = function () {
 }
 
 
+
+
 //funtion to ask for conditions.
 
 function generatePassword() {
@@ -67,28 +69,47 @@ function generatePassword() {
 
     return passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar);
   }
-}
 
 
-// This loop will generate random passwowd.
 
-function passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar) {
-  let output = "";
-  for (let i = 0; i = parseInt(passwordLength); i++) {
+  // This loop will generate random passwowd.
 
-    output += weatherUpper ? randomUpper() : "";
-    output += weatherLower ? randomLower() : "";
-    output += weatherInteger ? randomInteger() : "";
-    output += weatherSpecialChar ? randomSpecialChar() : "";
+  function passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar) {
+    let output = "";
+    for (let i = 0; i < parseInt(passwordLength); i = i++) {
+
+
+      if (weatherUpper == true) {
+        output = output + randomUpper();
+      }
+
+      if (weatherLower == true) {
+        output = output + randomLower();
+      }
+
+
+
+      if (weatherInteger == true) {
+        output = output + randomInteger();
+      }
+
+
+
+      if (weatherSpecialChar == true) {
+        output = output + randomSpecialChar();
+      }
+
+    }
+    output
+      .slice(0, length)
+      .split("")
+      .sort(() => {
+        Math.random() * -0.5;
+      })
+      .join("");
+
+    window.alert(`Your Password is ${output}`)
   }
-
-  return output
-    .slice(0, length)
-    .split("")
-    .sort(() => {
-      Math.random() * -0.5;
-    })
-    .join("");
 }
 
 
