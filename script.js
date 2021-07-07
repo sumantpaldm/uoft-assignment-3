@@ -28,19 +28,19 @@ const specialchar = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 // Funtions to generate random inputs.
 
 let randomUpper = function () {
-  return upperCase.charAt(Math.ceil(Math.random * upperCase.length));
+  return upperCase.charAt(Math.ceil(Math.random() * upperCase.length));
 }
 
 let randomLower = function () {
-  return lowerCase.charAt(Math.ceil(Math.random * lowerCase.length))
+  return lowerCase.charAt(Math.ceil(Math.random() * lowerCase.length))
 }
 
 let randomInteger = function () {
-  return integer.charAt(Math.ceil(Math.random * integer.length));
+  return integer.charAt(Math.ceil(Math.random() * integer.length));
 }
 
 let randomSpecialChar = function () {
-  return specialchar.charAt(Math.ceil(Math.random * specialchar.length));
+  return specialchar.charAt(Math.ceil(Math.random() * specialchar.length));
 }
 
 
@@ -75,50 +75,39 @@ function generatePassword() {
   // This loop will generate random passwowd.
 
   function passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar) {
-    let output = "";
-    for (let i = 0; i < parseInt(passwordLength); i = i + 4) {
+    let password = "";
+    for (let i = 0; i <= parseInt(passwordLength); i = i + 4) {
 
       if (weatherUpper == true) {
-        output = output + randomUpper();
+        password = password + randomUpper();
+        i++
       }
 
 
       if (weatherLower == true) {
-        output = output + randomLower();
+        password = password + randomLower();
+        i++
       }
 
 
 
       if (weatherInteger == true) {
-        output = output + randomInteger();
+        password = password + randomInteger();
+        i++
       }
 
 
 
       if (weatherSpecialChar == true) {
-        output = output + randomSpecialChar();
+        password = password + randomSpecialChar();
+        i++
       }
 
 
     }
 
 
-
-
-
-
-
-
-
-
-
-    /* output += weatherUpper ? randomUpper() : "";
-     output += weatherLower ? randomLower() : "";
-     output += weatherInteger ? randomInteger() : "";
-     output += weatherSpecialChar ? randomSpecialChar() : "";
-   }*/
-    console.log(output)
-    output
+    return password
 
       .split("")
       .sort(() => {
@@ -126,7 +115,7 @@ function generatePassword() {
       })
       .join("");
 
-    window.alert(`Your Password is ${output}`)
+
   }
 }
 
