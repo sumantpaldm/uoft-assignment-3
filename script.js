@@ -76,12 +76,12 @@ function generatePassword() {
 
   function passwordLoop(passwordLength, weatherUpper, weatherLower, weatherInteger, weatherSpecialChar) {
     let output = "";
-    for (let i = 0; i < parseInt(passwordLength); i = i++) {
-
+    for (let i = 0; i < parseInt(passwordLength); i = i + 4) {
 
       if (weatherUpper == true) {
         output = output + randomUpper();
       }
+
 
       if (weatherLower == true) {
         output = output + randomLower();
@@ -99,9 +99,27 @@ function generatePassword() {
         output = output + randomSpecialChar();
       }
 
+
     }
+
+
+
+
+
+
+
+
+
+
+
+    /* output += weatherUpper ? randomUpper() : "";
+     output += weatherLower ? randomLower() : "";
+     output += weatherInteger ? randomInteger() : "";
+     output += weatherSpecialChar ? randomSpecialChar() : "";
+   }*/
+    console.log(output)
     output
-      .slice(0, length)
+
       .split("")
       .sort(() => {
         Math.random() * -0.5;
