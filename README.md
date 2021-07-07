@@ -9,7 +9,7 @@
 
 ## Screenshot
 
-![screenshot](./assets/images/screenshot)
+![screenshot](/assets/images/screenshot.png)
 
 ## URL
 
