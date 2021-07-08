@@ -18,9 +18,9 @@ function writePassword() {
 
 
 // Creating Arrays for All the inputs.
-const upperCase = "abcdefghijklmnopqrstuvwxyz";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
 
-const lowerCase = "QWERTYUIOPASDFGHJKLZXCVBNM"
+const upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM"
 
 const integer = "1234567890"
 
@@ -141,9 +141,6 @@ function generatePassword() {
     return password
       .slice(0, parseInt(passwordLength))
       .split("")
-      .sort(() => {
-        Math.random() * -0.5;
-      })
       .join("");
 
 
